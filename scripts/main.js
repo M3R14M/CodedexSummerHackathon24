@@ -39,3 +39,50 @@ function activateCountdown(element, dateString) {
 }
 
 activateCountdown(document.getElementById("myCountdown"), "2024-07-13");
+
+const facebookButton = document.querySelector(
+    ".social-share-container .facebook-button"
+)
+const linkedinButton = document.querySelector(
+    ".social-share-container .linkedin-button"
+)
+const twitterButton = document.querySelector(
+    ".social-share-container .twitter-button"
+)
+const messengerButton = document.querySelector(
+    ".social-share-container .messenger-button"
+)
+const whatsappButton = document.querySelector(
+    ".social-share-container .whatsapp-button"
+)
+const shareButton = document.querySelector(
+    ".social-share-container .share-button"
+)
+    
+const toast = document.querySelector(".toast");
+
+const url = encodeURIComponent(window.location.href);
+const title = encodeURIComponent(document.title);
+
+const shareLink = window.location.href;
+
+twitterButton.href = `http://twitter.com/intent/tweet?url=${url}&text=${title}`;
+facebookButton.href = `https://www.facebook.com/sharer.php?u=${url}`;
+linkedinButton.href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+messengerButton.href = `https://www.facebook.com/dialog/send?link=${url}`;
+whatsappButton.href = `https://api.whatsapp.com/send?text=${title}:${url}`;
+
+const displayToast = (message) => {
+    toast.textContent = message;
+    toast.classList.add("active");
+    setTimeout(() => {
+        toast.classList.remove("active");
+    }, 3000)
+};
+
+shareButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(shareLink).then(() => {
+        display.Toast("Link copied");
+    }).catch(() => displayToast("Error copying link"))
+});
