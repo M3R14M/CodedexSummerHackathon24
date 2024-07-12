@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Stoop Sale</title>
   <link rel="stylesheet" href="styles/main.css">
-  <script src="main.js"></script>
-  <link rel="icon" href="icon.png">
-  <meta name="description" content="">
+  <link rel="icon" href="assets/icon.png">
+  <meta name="description" content="The most fun event of 2024 in Brooklyn, NY!">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
@@ -19,38 +19,35 @@
   <app-root>
 
     <header>
-      <!-- Count down timer until event starts -->
-      <count-down></count-down>
-      <h1>Stoop Sale Extravaganza - Great Vibes & Great Finds!</h1>
       <!-- Display RSVP count -->
       <rsvp-group>
-        <p><rsvp-count>0</rsvp-count> people are coming to snoop around!</p>
+        <p><rsvp-count>...</rsvp-count> people are coming to snoop around the stoop!</p>
         <button id="rsvp">Count me in!</button>
       </rsvp-group>
+      <!-- Count down timer until event starts -->
+      <count-down>
+        <div id="days">00</div>
+        <div id="hours">00</div>
+        <div id="minutes">00</div>
+        <div id="seconds">00</div>
+      </count-down>
+      <hgroup>
+        <h1>Stoop Sale Extravaganza</h1>
+        <p>Great Vibes & Great Finds!</p>
+
+      </hgroup>
+
     </header>
     <main>
       <aside>
-        <!-- Image? -->
-      </aside>
-
-      <section>
-        <!-- Cards -->
+        <p>Join us this Saturday for a stoop sale full of great vibes and amazing finds</p>
         <article>
-          <p>Join us this Saturday for a stoop sale full of great vibes and amazing finds</p>
-          <h2>When?</h2>
-          <p>Date: 7/13/2024 <br>
-            Time: 12:00 PM EST <br>
-            Location: 2nd Pl & Court St · Brooklyn, NY 11231
-          </p>
-        </article>
-        <article>
-          <p>What’s in store?</p>
+          <h2>What’s in store?</h2>
           <ul>
             <li>Clothes: From hip to quirky, perfect for your next fashion statement.</li>
             <li>Homegoods: Unique items to jazz up your space.</li>
             <li>Shoes: Fancy footwork at unbeatable prices.</li>
             <li>Tchotchkes: Because who doesn’t need more cute knick-knacks?</li>
-            <li>Other things: stuff that can be set up on a table and one clothing rack on a corner in Brooklyn, NY</li>
           </ul>
           <p>We’ve got good tunes, friendly faces, and maybe even some free lemonade (if we remember to make it). It’s
             going to be a blast – don’t miss out! <br>
@@ -58,23 +55,51 @@
             See you there!
           </p>
         </article>
-        <div id="map"></div>
+        <!-- Image? -->
+      </aside>
+
+      <section>
+        <!-- Cards -->
+        <article>
+          <h2>Say what?</h2>
+          <p>Date: 7/13/2024 <br>
+            Time: 12:00 PM EST <br>
+            Location: 2nd Pl & Court St · Brooklyn, NY 11231
+          </p>
+        </article>
+        <article>
+          <h2>Find us:</h2>
+          <div id="map"></div>
+        </article>
       </section>
     </main>
 
     <footer>
+      <h2>Share the love!</h2>
       <!-- Buttons for sharing -->
       <button-group>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://M3R14M.github.io/CodedexSummerHackathon24"
+          target="_blank" role="button" aria-label="Share on Facebook" title="Share on Facebook">
+          <i class="bi bi-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?url=https://M3R14M.github.io/CodedexSummerHackathon24" target="_blank"
+          role="button" aria-label="Share on Twitter" title="Share on Twitter">
+          <i class="bi bi-twitter"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?url=https://M3R14M.github.io/CodedexSummerHackathon24"
+          target="_blank" role="button" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+          <i class="bi bi-linkedin"></i></a>
+        <a href="https://www.instagram.com" target="_blank" role="button" aria-label="Share on Instagram"
+          title="Share on Instagram">
+          <i class="bi bi-instagram"></i></a>
+        <a href="https://www.pinterest.com/pin/create/button/?url=https://M3R14M.github.io/CodedexSummerHackathon24"
+          target="_blank" role="button" aria-label="Share on Pinterest" title="Share on Pinterest">
+          <i class="bi bi-pinterest"></i></a>
       </button-group>
+      <p>2024 Codédex Summer Hackathon | Team MakOS</p>
     </footer>
 
   </app-root>
   <script src="scripts/main.js"></script>
+  <script type="module" src="scripts/rsvp.js"></script>
 </body>
 
 </html>
