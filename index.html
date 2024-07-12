@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="styles/main.css">
   <link rel="icon" href="assets/icon.png">
   <meta name="description" content="The most fun event of 2024 in Brooklyn, NY!">
+  <script src="main.js"></script>
+  <link rel="icon" href="icon.png">
+  <meta name="description" content="">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -19,6 +22,28 @@
   <app-root>
 
     <header>
+      <count-down>
+        <div class="until" id="myCountdown">
+          <div class="until__component">
+            <div class="until__numeric until__numeric--days">00</div>
+            <div class="until__unit">Days</div>
+          </div>
+          <div class="until__component">
+            <div class="until__numeric until__numeric--hours">00</div>
+            <div class="until__unit">Hours</div>
+          </div>
+          <div class="until__component">
+            <div class="until__numeric until__numeric--minutes">00</div>
+            <div class="until__unit">Minutes</div>
+          </div>
+          <div class="until__component">
+            <div class="until__numeric until__numeric--seconds">00</div>
+            <div class="until__unit">Seconds</div>
+          </div>
+          <div class="until__event">until Stoop Sale!</div>
+        </div>
+      </count-down>
+      <h1>Stoop Sale Extravaganza - Great Vibes & Great Finds!</h1>
       <!-- Display RSVP count -->
       <rsvp-group>
         <p><rsvp-count>...</rsvp-count> people are coming to snoop around the stoop!</p>
@@ -98,6 +123,8 @@
     </footer>
 
   </app-root>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/dayjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.11/plugin/duration.min.js"></script>
   <script src="scripts/main.js"></script>
   <script type="module" src="scripts/rsvp.js"></script>
 </body>
