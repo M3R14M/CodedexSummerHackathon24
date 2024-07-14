@@ -21,7 +21,13 @@ const popup = L.popup()
   )
   .openOn(map);
 
-const countDownDate = new Date('Jul 13, 2024 12:00:00').getTime();
+// Creates a method to add hours to a date object
+Date.prototype.addHours = function (h) {
+  this.setTime(this.getTime() + h * 60 * 60 * 1000);
+  return this;
+};
+const eventDate = new Date().addHours(42);
+const countDownDate = new Date(eventDate).getTime();
 
 const countdown = setInterval(function () {
   const now = new Date().getTime();
@@ -42,9 +48,41 @@ const countdown = setInterval(function () {
   hours.textContent = hoursLeft;
   minutes.textContent = minutesLeft;
   seconds.textContent = secondsLeft;
+  // Theoretically it stops and removes the timer, but on load, the event date is always 42 hours from now
   if (timeLeft < 0) {
     clearInterval(countdown);
     document.querySelector('count-down').innerHTML =
       "<strong>Aaand we're off!</strong>";
   }
 }, 1000);
+
+// Updating the event date and time on the page
+function updateEventDateTime() {
+  const optionsDay = {
+    weekday: 'long',
+    timeZone: 'America/New_York',
+  };
+  const optionsDate = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    timeZone: 'America/New_York',
+  };
+  const optionsTime = {
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'America/New_York',
+    timeZoneName: 'short',
+  };
+  // Format date and time
+  const formattedDay = eventDate.toLocaleDateString('en-US', optionsDay);
+  const formattedDate = eventDate.toLocaleDateString('en-US', optionsDate);
+  const formattedTime = eventDate.toLocaleTimeString('en-US', optionsTime);
+  // Update HTML
+  document.querySelector('#event-day').textContent = formattedDay;
+  document.querySelector('#event-date').textContent = formattedDate;
+  document.querySelector('#event-time').textContent = formattedTime;
+}
+
+// Call the function to update the date and time on page load
+document.addEventListener('DOMContentLoaded', updateEventDateTime);
