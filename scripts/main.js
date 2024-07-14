@@ -10,8 +10,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Creates a pin at a set longitude and latitude
 const marker = L.marker([40.6794082, -73.9972808]).addTo(map);
-document.querySelector('.leaflet-marker-icon').src =
-  '../assets/marker-icon.png';
+document.querySelector('.leaflet-marker-icon').src = 'assets/marker-icon.png';
 
 // Creates a text bubble at a set longitude and
 const popup = L.popup()
